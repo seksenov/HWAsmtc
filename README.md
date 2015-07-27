@@ -1,61 +1,37 @@
-Build system for Windows 10 App Demos
+Demo: System Media Transport Controls and Background Audio
 ============
 
-Starter Gulp + Browserify project + Appx Tools
+This demo shows how to integrate a HTML 5 video element on your website with the Windows platform when it's running as a Hosted Web App on Windows 10. The integrations covered are with the System wide Media Controls for play, pause and volume control as well as background audio support. When the user uses the system controls the app will receive and handle the apropriate events. When the app is minimized on desktop or running in the background on phone audio will continue to play.
 
-Includes the following tools, tasks, and workflows:
+In order for the Windows Toast code to work you need to be running this project as a Universal Windows App on a Windows 10 device. Otherwise you'll be able to check out the video in the browser.
 
-- [Browserify](http://browserify.org/) (with [browserify-shim](https://github.com/thlorenz/browserify-shim))
-- Windows 10 Hosted App Build System
-- [Watchify](https://github.com/substack/watchify) (caching version of browserify for super fast rebuilds)
-- [SASS](http://sass-lang.com/) (super fast libsass with [source maps](https://github.com/sindresorhus/gulp-ruby-sass#sourcemap), and [autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer))
-- [BrowserSync](http://browsersync.io) for live reloading and a static server
-- [Image optimization](https://www.npmjs.com/package/gulp-imagemin)
-- Error handling in the console [and in Notification Center](https://github.com/mikaelbr/gulp-notify)
-- Shimming non common-js vendor code with other dependencies (like a jQuery plugin)
-- Multiple bundles with shared dependencies
-- Separate compression task for production builds
+### To Run on Windows 10:
+![img](https://raw.githubusercontent.com/wiki/seksenov/HWAToast/images/HWAToastScreenToastUp.PNG)
+![img](https://raw.githubusercontent.com/wiki/seksenov/HWAToast/images/HWAToastScreenResponse.PNG)
 
-### Install npm dependencies
+
+#### Step 1
+Clone the repo locally 
+
 ```
 npm install
-```
+gulp appx:dev
+``` 
 
-This runs through all dependencies listed in `package.json` and downloads them to a `node_modules` folder in your project directory.
+This will start a localhost server an open a browser window and launch a hosted web app pointing to it.
+You will also have an external URL that you can connect to from a mobile device.
 
-### The `gulp` command
-You can  install gulp globally with `npm install -g gulp`, which will add the gulp script to your global bin folder.
+#### Step 2
+Play the video
 
-To use the version that's specified in your project's package.json.  You can simply alias `./node_modules/.bin/gulp` to `gulp`. Open up `~/.zshrc` or `~./bashrc` and add the following line:
+- Use the media control to play and pause
 
-```
-alias gulp='node_modules/.bin/gulp'
-```
-Now, running `gulp` in the project directory will use the version specified and installed from the `package.json` file.
+#### Step 3
+Minimize the App
 
-### Run gulp
+- Minimize the app and notice that the audio is still playing
 
-```
-gulp
-```
-
-This will run the `default` gulp task defined in `gulp/tasks/default.js`, which has the following task dependencies: `['sass', 'images', 'markup', 'watch']`
-- The `sass` task compiles your css files.
-- `images` moves images copies images from a source folder, performs optimizations, the outputs them into the build folder
-- `markup` doesn't do anything but copy an html file over from src to build, but here is where you could do additional templating work.
-- `watch` has `watchify` as a dependency, which will run the browserifyTask with a `devMode` flag that enables sourcemaps and watchify, a browserify add-on that enables caching for super fast recompiling. The task itself starts watching source files and will re-run the appropriate tasks when those files change.
-
-#### gulp appx
-This command will install your App as a hosted app pointing to `http://localhost:3000` and then launch it.
-
-#### gulp production
-
-There is also a `production` task you can run with `gulp production`, which will re-build optimized, compressed css and js files to the build folder, as well as output their file sizes to the console. It's a shortcut for running the following tasks: `['images', 'minifyCss', 'uglifyJs']`.
-
-### Configuration
-All paths and plugin settings have been abstracted into a centralized config object in `gulp/config.js`. Adapt the paths and settings to the structure and needs of your project.
-
-### 
-Application icon: [web design by Simple Icons from the Noun Project](https://thenounproject.com/search/?q=code&i=32232)
-
-Project using: [Gulp Starter](https://github.com/greypants/gulp-starter) as base
+#### More Info
+- To start your own hosted web app project from scratch check out the appx yeoman generator [here](https://github.com/MicrosoftEdge/generator-appx)
+- If you have an existing web app with a JSON manifest that you'd like to publish on WIndows 10 and other platforms check out [ManifoldJS](http://www.manifoldjs.com/)
+- For more info on Hosted Web Apps for Windows 10 check out [Project Wesminster in a nutshell](http://blogs.windows.com/buildingapps/2015/07/06/project-westminster-in-a-nutshell/)
