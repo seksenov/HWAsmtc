@@ -6,9 +6,6 @@ This demo shows how to integrate a HTML 5 video element on your website with the
 In order for the Windows Toast code to work you need to be running this project as a Universal Windows App on a Windows 10 device. Otherwise you'll be able to check out the video in the browser.
 
 ### To Run on Windows 10:
-![img](https://raw.githubusercontent.com/wiki/seksenov/HWAToast/images/HWAToastScreenToastUp.PNG)
-![img](https://raw.githubusercontent.com/wiki/seksenov/HWAToast/images/HWAToastScreenResponse.PNG)
-
 
 #### Step 1
 Clone the repo locally 
