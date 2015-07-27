@@ -1,7 +1,7 @@
 Demo: System Media Transport Controls and Background Audio
 ============
 
-This demo shows how to integrate a HTML 5 video element on your website with the Windows platform when it's running as a Hosted Web App on Windows 10. The integrations covered are with the System wide Media Controls for play, pause and volume control as well as background audio support. When the user uses the system controls the app will receive and handle the apropriate events. When the app is minimized on desktop or running in the background on phone audio will continue to play.
+This demo shows how to integrate a HTML 5 video element on your website with the Windows platform when it's running as a Hosted Web App on Windows 10. The integrations covered are with the System wide Media Controls for play, pause and volume control as well as background audio support. When the user uses the system controls the app will receive and handle the appropriate events. When the app is minimized on desktop or running in the background on phone audio will continue to play.
 
 In order for the Windows Toast code to work you need to be running this project as a Universal Windows App on a Windows 10 device. Otherwise you'll be able to check out the video in the browser.
 
