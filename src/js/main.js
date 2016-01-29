@@ -90,7 +90,7 @@ function mediaEnded() {
 function fullScreen() {
     console.log("fullscreenchange");
     if (typeof Windows !== 'undefined') {
-        var view = ApplicationView.getForCurrentView();
+        var view = Windows.UI.ViewManagement.ApplicationView.getForCurrentView();
         if(view.IsFullScreenMode) {
             console.log("Exiting WinRT Fullscreen");
             view.ExitFullScreenMode();
