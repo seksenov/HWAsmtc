@@ -21,6 +21,10 @@ document.addEventListener("DOMContentLoaded", function () {
 	videoElement.addEventListener("pause", mediaPaused);
 	videoElement.addEventListener("playing", mediaPlaying);
 	videoElement.addEventListener("ended", mediaEnded);
+    videoElement.addEventListener("msfullscreenchange", fullScreen);
+    videoElement.addEventListener("webkitfullscreenchange", fullScreen);
+    videoElement.addEventListener("fullscreenchange", fullScreen);
+    videoElement.addEventListener("mozfullscreenchange", fullScreen);
 });
 
 // Event handler for SystemMediaTransportControls' buttonpressed event
@@ -80,4 +84,18 @@ function mediaPaused() {
 function mediaEnded() {
     // Update the SystemMediaTransportControl state.
     systemMediaControls.playbackStatus = Windows.Media.MediaPlaybackStatus.stopped;
+}
+
+// Full screen change event notification
+function fullScreen() {
+    console.log("fullscreenchange");
+    if (typeof Windows !== 'undefined') {
+        var view = ApplicationView.getForCurrentView();
+        if(view.IsFullScreenMode) {
+            view.ExitFullScreenMode();
+        }
+        else {
+            view.TryEnterFullScreenMode();
+        }
+    };
 }
