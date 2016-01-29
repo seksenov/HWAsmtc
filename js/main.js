@@ -92,9 +92,11 @@ function fullScreen() {
     if (typeof Windows !== 'undefined') {
         var view = Windows.UI.ViewManagement.ApplicationView.getForCurrentView();
         if(view.IsFullScreenMode) {
+        	console.log("enter full screen");
             view.ExitFullScreenMode();
         }
         else {
+        	console.log("exit full screen");
             view.TryEnterFullScreenMode();
         }
     };
